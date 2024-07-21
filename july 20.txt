@@ -1,0 +1,137 @@
+package oit;
+import java.util.*;
+/*
+class Area
+{
+	double r,a;
+	void accept(double r)
+	{
+		this.r=r;
+	}
+	double display()
+	{
+		a=3.14*r*r;
+		return a;
+	}
+}
+
+public class july20 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the  array size:");
+		int n=sc.nextInt();
+		Area a[]=new Area[n];
+		for(int i=0;i<n;i++)
+		{
+			System.out.println("enter the  radius:");
+			int r=sc.nextInt();
+			a[i]=new Area();
+			a[i].accept(r);
+			System.out.println("area of circle:"+a[i].display());
+		}
+		
+
+	}
+
+}
+*/
+class demo
+{
+	int n,i,flag=0,n1,rev=0;
+	void accept(int n)
+	{
+		this.n=n;
+		
+	}
+	void sign()
+	{
+		if(n>0)
+			System.out.println("n is +ve");
+		else if(n<0)
+			System.out.println("n is -ve");
+		else
+			System.out.println("zero");
+				
+	}
+	
+	int prime()
+	{
+		for(i=2;i<n;i++)
+		{
+			if(n%i==0)
+				flag=1;
+			else
+				flag=0;
+		}
+		return flag;
+		
+	}
+	
+	int rev()
+	{
+		while(n>0)
+		{
+		n1=n%10;
+		rev=rev*10+n1;
+		n=n/10;
+		
+		}
+		return rev;
+	}
+	
+	
+	
+}
+class july20
+{
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		int n;
+		
+		System.out.println("enter the no:");
+		n=sc.nextInt();
+		System.out.println("1)check +ve/-ve\n2)prime\n3)rev\n4)pallindrome\n5)Exit");
+		System.out.println("enter the choice:");
+		int ch=sc.nextInt();
+		demo a=new demo();
+		a.accept(n);
+		switch(ch)
+		{
+		case 1:
+			a.sign();
+			break;
+			
+		case 2:
+			a.prime();
+			break;
+			
+		case 3:
+			System.out.println("reverse no:"+a.rev());
+			break;
+			
+		case 4:
+			if(n==a.rev())
+				System.out.println("pallindrome");
+			else
+				System.out.println("not pallindrome");
+			break;
+		case 5:
+			System.exit(0);
+			break;
+			
+		default:
+			System.out.println("Wrong choice");
+			break;
+				
+			
+			
+		}
+		
+	}
+}
+
+
+
