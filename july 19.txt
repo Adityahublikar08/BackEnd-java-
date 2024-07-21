@@ -1,0 +1,182 @@
+package oit;
+import java.util.*;
+ 
+class Student
+{
+	Scanner sc=new Scanner(System.in);
+	int sid;
+	String sname;
+	double per;
+	void accept()
+	{
+		System.out.println("enter the student rollno, student name, percentage:");
+		sid=sc.nextInt();
+		
+		sname=sc.next();
+	
+		per=sc.nextInt();
+	}
+	void display()
+	{
+		System.out.println("Student name:"+sname+"\nRollno:"+sid+"\npercentage:"+per);
+	}
+}
+
+class july19
+{
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the Student array size:");
+		int n=sc.nextInt();
+		Student a[]=new Student[n];
+		for(int i=0;i<n;i++)
+		{
+			a[i]=new Student();
+			a[i].accept();
+			a[i].display();
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*class Book
+{
+	Scanner sc=new Scanner(System.in);
+	int bid;
+	String author,bname;
+	double price;
+	public void accept()
+	 {
+		 System.out.println("Enter the bid,author,bname and price of book:");
+		 bid=sc.nextInt();
+		 author=sc.next();
+		 bname=sc.next();
+		 price=sc.nextDouble();
+    }
+	public void display()
+	 {
+		 System.out.println("Book name:"+bname+"\nBoook Id:"+bid+"\nBook Author:"+author+"\nprice:"+price);
+	 }
+}
+
+
+public class july19 {
+
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size of Book array;");
+		int n=sc.nextInt();
+		Book a[]=new Book[n];
+		for(int i=0;i<n;i++)
+		{    a[i]=new Book();
+			a[i].accept();
+			a[i].display();
+		}
+
+	}
+	
+
+}
+*/
+
+/*
+class Vehicle
+{
+	Scanner sc=new Scanner(System.in);
+	int vid;
+	String company_name,color,owner,vname;
+	double price;
+	public void accept()
+	 {
+		 System.out.println("Enter the vid,company name,vname,owner name and price,color of vehicle:");
+		 vid=sc.nextInt();
+		 company_name=sc.next();
+		 vname=sc.next();
+		 owner=sc.next();
+		 price=sc.nextDouble();
+		 color=sc.next();
+    }
+	public void display()
+	 {
+		 System.out.println("vehicle name:"+vname+"\ncolor:"+color+"\nOwner Name:"+owner+"\ncompany Name:"+company_name+"\nprice:"+price);
+	 }
+}
+
+
+public class july19 {
+
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size ofvehicle array;");
+		int n=sc.nextInt();
+		Vehicle a[]=new Vehicle[n];
+		for(int i=0;i<n;i++)
+		{    a[i]=new Vehicle();
+			a[i].accept();
+			a[i].display();
+		}
+
+	}
+	
+
+}
+*/
+
+
+/*
+class Employee
+{
+	Scanner sc=new Scanner(System.in);
+	int eid;
+	String ename,designation,email,address;
+	double salary;
+	void accept()
+	{
+		System.out.println("enter the employee id, employee name, designation,email,address,salary:");
+		eid=sc.nextInt();
+		designation=sc.next();
+		ename=sc.next();
+	email=sc.next();
+		address=sc.next();
+		salary=sc.nextInt();
+	}
+	void display()
+	{
+		System.out.println("Employee name:"+ename+"\nemployee Id:"+eid+"\ndesignation:"+designation+"\nsalary:"+salary+"\nemail"+email+"\naddress:"+address);
+	}
+}
+
+class july19
+{
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the employee array size:");
+		int n=sc.nextInt();
+		Employee a[]=new Employee[n];
+		for(int i=0;i<n;i++)
+		{
+			a[i]=new Employee();
+			a[i].accept();
+			a[i].display();
+		}
+	}
+}
+*/
