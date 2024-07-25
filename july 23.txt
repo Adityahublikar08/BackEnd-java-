@@ -1,0 +1,146 @@
+package oit;
+import java.util.*;
+
+class Students
+{
+	int rno;
+	String name;
+	 Students(int rno,String name)
+	 {
+		 this.rno=rno;
+		 this.name=name;
+	 }
+	 void show()
+	 {
+		 System.out.println("Roll no:"+rno+" Name:"+name);
+	 }
+}
+class x_student extends Students
+{
+	int salary;
+	String cname;
+	x_student(int rno,String name,int salary,String cname)
+	{
+		super(rno,name);
+		this.salary=salary;
+		this.cname=cname;
+		
+	}
+	
+	void display()
+	{
+		System.out.println("company Name:"+cname+" salary:"+salary+"$");
+	}
+	
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+
+
+class Clerk
+{
+	int id;
+	String name,dob;
+	 Clerk(int id,String name,String dob)
+	 {
+		 this.id=id;
+		 this.name=name;
+		 this.dob=dob;
+		 }
+	 
+	 void display()
+	 {
+		 System.out.println("Employee Name:"+name+" Id:"+id+" Date of birth:"+dob);
+	 }
+}
+class Manager extends Clerk
+{
+	String department,doj;
+	Manager(int id,String name,String dob,String department,String doj)
+	{
+		super(id,name,dob);
+		this.department=department;
+		this.doj=doj;
+	}
+	
+	void show()
+	{
+		System.out.print("Employee Name:"+name+"\nId:"+id+"\nDate of birth:"+dob+"\nDepartment:"+department+"\ndate of joining:"+doj);
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+
+
+
+class Emp_2
+{
+	int id;
+	String name;
+	double salary;
+	 Emp_2(int id,String name,double salary)
+	 {
+		 this.id=id;
+		 this.name=name;
+		 this.salary=salary;
+		 }
+	 
+	 double getsalary()
+	 {
+		 return salary;
+	 }
+	 
+}
+class Manages extends Emp_2
+{
+	double hra,ta,da;
+	Manages(int id,String name,double salary)
+	{
+		super(id,name,salary);
+		this.hra=getsalary()*0.05;
+		this.da=getsalary()*0.09;
+		this.ta=getsalary()*0.1;
+		
+			}
+	void cal()
+	{
+     salary=salary+hra+ta+da;
+     System.out.println("Name:"+name+"\nId:"+id+"\nGross salary:"+salary);
+	}
+	
+	
+}
+
+public class july23 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		/*x_student s=new  x_student(1,"Aditya",40000,"x");
+		s.show();
+		s.display();
+		*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/		
+	/*	System.out.println("enter the employee arrray size:");
+		int n=sc.nextInt();
+		Manager m[]=new Manager[n];
+		for(int i=0;i<n;i++)
+		{
+			System.out.println("Enter the Employee name, id ,Date of birth ,department,date of joining:");
+		String name=sc.next();
+		int id=sc.nextInt();
+		String dob=sc.next();
+		String depart=sc.next();
+		String doj=sc.next();
+		m[i]=new Manager(id,name,dob,depart,doj);
+		
+		m[i].show();
+
+		}
+		*/
+		
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/		
+	
+
+	}
+
+}
