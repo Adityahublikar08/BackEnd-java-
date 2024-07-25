@@ -1,0 +1,127 @@
+package oit;
+import java.util.*;
+class poly1
+{ 
+	Scanner sc=new Scanner(System.in);
+	double l,b,h,r,a;
+	void cal_area()
+	{
+		System.out.println("Enter the lenght and breadth:");
+		l=sc.nextDouble();
+		b=sc.nextDouble();
+		System.out.println("Area of rectangle:"+l*b);
+	}
+	
+	void cal_area(double r)
+	{
+		this.r=r;
+		System.out.println("Area of circle:"+3.14*r*r);
+	}
+	
+	double cal_area(double h,double b)
+	{
+		this.h=h;
+		this.b=b;
+		return 0.5*b*h;
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/	
+class max
+{
+	
+	Scanner sc=new Scanner(System.in);
+	double n1,n2,n3;
+	void calc()
+	{
+		System.out.println("Enter the n1 and n2:");
+		n1=sc.nextDouble();
+		n2=sc.nextDouble();
+		if(n1>n2)
+			System.out.println("n1 is max");
+		else if(n2>n1)
+			System.out.println("n2 is max");
+		else
+			System.out.println("both are equal");
+	}
+	
+	void calc(double n1,double n2,double n3)
+	{
+		System.out.println("enter n1,n2,n3");
+	    
+	      if(n1>n2 && n1>n3)
+	      {
+	          System.out.println(" n1 is greater");
+	      }
+	      else if (n2>n1 && n2>n3)
+	      {
+	          System.out.println("n2 is greater");
+	      }
+	      else if (n3>n1 && n3>n2)
+	      {
+	          System.out.println("m3 is greater");
+	      }
+	      else if (n1==n2 && n1>n3 && n2>n3)
+	      {
+	          System.out.println(" n1 and n2 are equal and greater than n3");
+	      }
+	      else if (n1==n3 && n1>n2 && n3>n2)
+	      {
+	          System.out.println("n1 and n3 are equal and greatwr than n2");
+	      }
+	      else if (n2== n3 && n2>n1 && n3>n1)
+	      {
+	          System.out.println("n2 and n3 are equal and grater than n1");
+	      }
+	      else
+	      {
+	          System.out.println("n1 and n2 and n3 are equal");
+	      }
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/	
+class add1
+{
+	double n1,n2,n3;
+	void calc()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the n1 and n2:");
+		n1=sc.nextDouble();
+		n2=sc.nextDouble();
+		System.out.println("Addition of n1 and n2:"+(n1+n2));
+		
+	}
+	void calc(double n1,double n2,double n3)
+	{
+		System.out.println("Addition of n1 and n2,n3:"+(n1+n2+n3));
+	}
+}
+public class july25 {
+	public static void main(String args[])
+	{
+	/*	poly1 p=new poly1();
+		p.cal_area();
+		p.cal_area(0.5);
+		System.out.println("arae of triangle:"+p.cal_area(5,9));
+		*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/			
+	/*	max m1=new max();
+		m1.calc(3, 5, 3);
+		m1.calc();
+	*/
+		
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/	
+		add1 m1=new add1();
+		m1.calc(3, 5, 3);
+		m1.calc();
+	
+	
+	}
+	
+	
+	
+	
+
+}
+
