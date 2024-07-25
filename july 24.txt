@@ -1,0 +1,627 @@
+package oit;
+import java.util.*;
+
+class area
+{
+	double r,a;
+	area(double r)
+	{
+		this.r=r;
+	}
+	void cal_area() {
+		a=3.14*r*r;
+		
+	}
+}
+
+class vol extends area
+{  
+	double h,volume;
+  
+	vol(double r,double h)
+	{super(r);
+		this.h=h;
+	}
+	void cal_vol()
+	{
+		cal_area();
+		volume=a*h;
+		System.out.println("volume 0 :"+volume);
+	}
+}
+
+class vol1 extends vol
+{
+	double l,vol1;
+	vol1(double r,double h,double l)
+	{
+		super(r,h);
+		this.l=l;
+	}
+	void cal_vol1()
+	{
+		cal_vol();
+		vol1=volume*l;
+		System.out.println("volume 1 :"+vol1);
+	}
+}
+
+class Student3
+{
+	int id;
+	String Name;
+	Student3(int id,String name)
+	{
+		this.id=id;
+		Name=name;
+	}
+	
+	void display()
+	{
+		System.out.println("Id:"+id+"\nName:"+Name);
+	}
+}
+
+class Marks extends Student3
+{
+	int m1,m2,m3;
+	Marks(int id,String Name,int m1,int m2,int m3)
+	{
+		super(id,Name);
+		this.m1=m1;
+		this.m2=m2;
+		this.m3=m3;
+	}
+	
+	void show()
+	{
+		display();
+		System.out.println("m1:"+m1+"\nm2:"+m2+"\nm3:"+m3);
+	}
+	
+	
+}
+
+class Result extends Marks
+{
+	int total;
+	double per;
+	Result(int id,String Name,int m1,int m2,int m3)
+	{
+		super(id,Name,m1,m2,m3);
+		total=m1+m2+m3;
+		per=total/3;
+	}
+	void total()
+	{
+		System.out.println("total:"+total);
+		System.out.println("percentage:"+per);
+		
+	}
+	void cal_class()
+	{
+		if(per>=35 && per<=50)
+			System.out.println("pass");
+		else if(per>=61 && per<=70)
+			System.out.println("third class");
+		else if(per>=71 && per<=80)
+			System.out.println("Second class");
+		else if(per>=81 && per<=90)
+			System.out.println("first class");
+		else if(per>=91 && per<=100)
+			System.out.println("Distinction");
+		else
+			System.out.println("Fail");
+			
+		
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+
+
+class Emp3
+{
+	int eid;
+	String ename,desg;
+	Emp3(int eid,String ename,String desg)
+	{
+		this.eid=eid;
+		this.ename=ename;
+		this.desg=desg;
+	}
+	void display()
+	{
+		System.out.println("Ename:"+ename+"\nID:"+eid+"\ndesignation:"+desg);
+	}
+}
+
+class part_Time extends Emp3
+{
+	int n_hr;
+	int ht_rate;
+	int salary;
+	part_Time(int eid,String ename,String desg,int n_hr,int ht_rate)
+	{
+		super(eid,ename,desg);
+		this.n_hr=n_hr;
+		this.ht_rate=ht_rate;
+	}
+	void cal()
+	{
+		salary=n_hr*ht_rate;
+		System.out.println("salary:"+salary);
+	}
+}
+
+class full_Time extends Emp3
+{
+	int n_day;
+	int day_rate;
+	int salary;
+	full_Time(int eid,String ename,String desg,int n_day,int day_rate)
+	{
+		super(eid,ename,desg);
+		this.n_day=n_day;
+		this.day_rate=day_rate;
+	}
+	void cal()
+	{
+		salary=n_day*day_rate;
+		System.out.println("salary:"+salary);
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+
+
+
+class Vehicle
+{
+	double price;
+	String company;
+	Vehicle(double price,String company)
+	{
+		this.price=price;
+		this.company=company;
+	}
+	void show()
+	{
+		System.out.println("company:"+company+"\nprice:"+price);
+	}
+}
+
+class lightMotorVehicle extends Vehicle
+{
+	double mileage;
+	lightMotorVehicle(String company,double price,double mileage)
+	{
+		super(price,company);
+		this.mileage=mileage;
+	}
+	 void show()
+	 {
+		 System.out.println("company Name:"+company+"\nprice:"+price+"\nmileage:"+mileage); 
+	 }
+	
+	
+}
+
+class heavyMotorVehicle extends Vehicle
+{
+	double capacity_in_tons;
+	heavyMotorVehicle(String company,double price,double capacity_in_tons)
+	{
+		super(price,company);
+		this.capacity_in_tons=capacity_in_tons;
+	}
+	 void show()
+	 {
+		 System.out.println("company Name:"+company+"\nprice:"+price+"\ncapacity:"+capacity_in_tons); 
+	 }
+	
+	
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+
+
+class Movie
+{
+	String title;
+	int no_of_tickets;
+	double amount;
+	
+	Movie(String title,int no_of_tickets,double amount)
+	{
+		this.title=title;
+		this.no_of_tickets=no_of_tickets;
+		this.amount=amount;
+		
+	}
+	void show()
+	{
+		System.out.println("Title:"+title+"\nno of tickets:"+no_of_tickets+"\nAmount:"+amount);
+	}
+}
+
+
+class taxMovie extends Movie
+{
+	double tax,final_amt;
+	taxMovie(String title,int no_of_tickets,double amount,double tax)
+	{
+		super(title,no_of_tickets,amount);
+		this.tax=tax;
+		
+	}
+	
+	void cal()
+	{
+		final_amt=amount*tax+amount;
+		System.out.println("Final amount:"+final_amt);
+	}
+}
+
+class taxFreeMovie extends Movie
+{
+	double final_amt;
+	taxFreeMovie(String title,int no_of_tickets,double amount)
+	{
+		super(title,no_of_tickets,amount);
+		
+		
+	}
+	
+	void cal()
+	{
+		final_amt=amount;
+		System.out.println("Final amount:"+final_amt);
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+
+
+
+class continent
+{
+	String cname;
+	continent(String cname)
+	{
+		this.cname=cname;
+	}
+	void show()
+	{
+		System.out.println("Continent Name:"+cname);
+	}
+	
+}
+class country extends continent
+{
+	String coname;
+	country(String cname,String coname)
+	{  super(cname);
+		this.coname=cname;
+	}
+	void show()
+	{
+		System.out.println("Continent Name:"+cname+"country:"+coname);
+	}
+	
+}
+class state extends country
+{
+	String sname;
+	state(String cname,String coname,String sname)
+	{  super(cname,coname);
+		this.sname=sname;
+	}
+	void show()
+	{
+		System.out.println("Continent Name:"+cname+"country:"+coname+"state Name:"+sname);
+	}
+	
+}
+
+class city extends state
+{
+	String city_name;
+	city(String cname,String coname,String sname,String city_name)
+	{  super(cname,coname,sname);
+		this.city_name=city_name;
+	}
+	void show()
+	{
+		System.out.println("Continent Name:"+cname+"\ncountry:"+coname+"\nstate Name:"+sname+"\ncity name:"+city_name);
+	}
+	
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+
+
+abstract class order
+{
+	int id;
+	String descp;
+	abstract void show();
+	
+}
+
+class purchaseOrder extends order
+{
+	String vname,cname;
+	purchaseOrder(int id,String descp,String vname,String cname)
+	{
+	super.id=id;
+		super.descp=descp;
+		this.vname=vname;
+		this.cname=cname;
+	}
+	void show()
+	{
+		System.out.println("vname:"+vname+"\nId:"+super.id+"\ncustomer Name:"+cname+"\n Description:"+super.descp);
+	}
+}
+class salesOrder extends order
+{
+	String vname,cname;
+	salesOrder(int id,String descp,String vname,String cname)
+	{
+		super.id=id;
+		super.descp=descp;
+		this.vname=vname;
+		this.cname=cname;
+	}
+	void show()
+	{
+		System.out.println("vname:"+vname+"\nId:"+super.id+"\ncustomer Name:"+cname+"\n Description:"+super.descp);
+	}
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+
+
+public class july24 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+	/*	System.out.println("enter r,h,l:");
+		double r=sc.nextDouble();	``
+		double h=sc.nextDouble();
+		double l=sc.nextDouble();
+		
+		vol1 v1=new vol1(r,h,l);
+		v1.cal_vol1();
+	*/
+		
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/				
+		/*	System.out.println("Enter the name,id,m1,m2,m3:");
+			String name=sc.next();
+			int id=sc.nextInt();
+			int m1=sc.nextInt();
+			int m2=sc.nextInt();
+			int m3=sc.nextInt();
+			  Result r1=new Result(id,name,m1,m2,m3);
+			  r1.total();
+			  r1.cal_class();
+			*/
+			
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/		
+			/*System.out.println("enter the employee arrray size:");
+			int n=sc.nextInt();
+			Manages m[]=new Manages[n];
+			for(int i=0;i<n;i++)
+			{
+				System.out.println("Enter the Employee name, id ,Salary :");
+			String name=sc.next();
+			int id=sc.nextInt();
+			double salary=sc.nextDouble();
+			
+			m[i]=new Manages(id,name,salary);
+
+			}
+			System.out.println("--------------------------------------------------------");
+			System.out.println("Empoyee details:");
+			System.out.println("--------------------------------------------------------");
+			for(int i=0;i<n;i++)
+			{
+			
+			m[i].cal();
+
+			}
+			System.out.println("--------------------------------------------------------");
+			*/
+			
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/	
+		
+	/*	int id;
+		String name,desg;
+		double salary;
+		int n_hr,n_day;
+		int ht_rate,day_rate;
+		int ch;
+		do
+		{
+			System.out.println("1)Accept part time details:");
+			System.out.println("2)Accept full time details:");
+			System.out.println("3)Exit");
+			System.out.println("Enter your choice:");
+			ch=sc.nextInt();
+			switch(ch)
+			{
+			case 1:
+				System.out.println("Enter the Eid,name,designation,n_hr,ht_rate:");
+				id=sc.nextInt();
+				name=sc.next();
+				desg=sc.next();
+				n_hr=sc.nextInt();
+				ht_rate=sc.nextInt();
+				part_Time p1=new part_Time(id,name,desg,n_hr,ht_rate);
+				p1.display();
+				p1.cal();
+				break;
+				
+			case 2:
+				System.out.println("Enter the Eid,name,designation,n_hr,ht_rate:");
+				id=sc.nextInt();
+				name=sc.next();
+				desg=sc.next();
+				n_day=sc.nextInt();
+				day_rate=sc.nextInt();
+				full_Time p2=new full_Time(id,name,desg,n_day,day_rate);
+				p2.display();
+				p2.cal();
+				break;
+				
+			case 3:
+				System.out.println("Exit");
+				System.exit(0);
+				break;
+			}
+		}while(ch<=3);
+		*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/		
+		
+		String company;
+		double price,mileage,capacity_in_tons;
+		
+		int ch;
+		double tax;
+		do
+		{
+			System.out.println("1)Accept LightMotorVehicle details:");
+			System.out.println("2)Accept HeavyMototVehicle details:");
+			System.out.println("3)Exit");
+			System.out.println("Enter your choice:");
+			ch=sc.nextInt();
+			switch(ch)
+			{
+			case 1:
+				System.out.println("Enter company name,price,mileage");
+				company=sc.next();
+				
+				price=sc.nextDouble();
+				mileage=sc.nextDouble();
+				
+				lightMotorVehicle t1=new lightMotorVehicle(company,price,mileage);
+				t1.show();
+				
+				break;
+				
+			case 2:
+				System.out.println("Enter company name,price,capacity_in-tons");
+				company=sc.next();
+				
+				price=sc.nextDouble();
+				capacity_in_tons=sc.nextDouble();
+				
+				heavyMotorVehicle e1=new heavyMotorVehicle(company,price,capacity_in_tons);
+				e1.show();
+				
+				break;
+				
+			case 3:
+				System.out.println("Exit");
+				System.exit(0);
+				break;
+			}
+		}while(ch<=3);
+		
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/			
+		/*String title;
+		double amount;
+		int no_of_tickets;
+		int ch;
+		double tax;
+		do
+		{
+			System.out.println("1)Accept taxedMovie details:");
+			System.out.println("2)Accept taxFree Movie details:");
+			System.out.println("3)Exit");
+			System.out.println("Enter your choice:");
+			ch=sc.nextInt();
+			switch(ch)
+			{
+			case 1:
+				System.out.println("Enter the title,no_of_tickets,amount,tax");
+				title=sc.next();
+				no_of_tickets=sc.nextInt();
+				amount=sc.nextDouble();
+				tax=sc.nextDouble();
+				
+				taxMovie t1=new taxMovie(title,no_of_tickets,amount,tax);
+				t1.show();
+				t1.cal();
+				break;
+				
+			case 2:
+				System.out.println("Enter the title,no_of_tickets,amount");
+				title=sc.next();
+				no_of_tickets=sc.nextInt();
+				amount=sc.nextDouble();
+				
+				
+				taxFreeMovie t2=new taxFreeMovie(title,no_of_tickets,amount);
+				t2.show();
+				t2.cal();
+				break;	
+				
+			case 3:
+				System.out.println("Exit");
+				System.exit(0);
+				break;
+			}
+		}while(ch<=3);
+		
+		*/
+		
+		/*city c1=new city("asia","india","Maharashtra","pune");
+		c1.show();
+		*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/			
+		
+		/*String descp,vname,cname;
+		
+		int id;
+		int ch;
+
+		do
+		{
+			System.out.println("1)Accept PurcasedOrder details:");
+			System.out.println("2)Accept SalesOrder Movie details:");
+			System.out.println("3)Exit");
+			System.out.println("Enter your choice:");
+			ch=sc.nextInt();
+			switch(ch)
+			{
+			case 1:
+				System.out.println("Enter the vendor Name,Id,cname,description");
+				vname=sc.next();
+				id=sc.nextInt();
+				cname=sc.next();
+				descp=sc.next();
+				purchaseOrder p1=new purchaseOrder(id,descp,vname,cname);
+				p1.show();
+				break;
+				
+			case 2:
+				System.out.println("Enter the vendor Name,Id,cname,description");
+				vname=sc.next();
+				id=sc.nextInt();
+				cname=sc.next();
+				descp=sc.next();
+				salesOrder s1=new salesOrder(id,descp,vname,cname);
+				s1.show();
+				break;
+				
+			case 3:
+				System.out.println("Exit");
+				System.exit(0);
+				break;
+			}
+		}while(ch<=3);
+		*/
+		
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/		
+
+	}
+
+}
