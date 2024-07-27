@@ -1,0 +1,449 @@
+package oit;
+import java.util.*;
+
+abstract class area2
+{ 
+	abstract void cal_area();
+	abstract void cal_vol();
+}
+
+class spheres extends area2
+{
+double r;
+	spheres(double r)
+	{ 
+		this.r=r;
+	}
+
+
+public void cal_area()
+{
+	
+	System.out.println("Area of sphere:"+(4*3.14*r*r));
+	
+}
+
+public void cal_vol()
+{
+	r=4.5;
+	System.out.println("Volume of sphere:"+((4/3)*3.14*r*r*r));
+	
+}
+}
+
+class cone extends area2
+{
+double r,l,h;
+
+cone(double r,double l,double h)
+{
+	this.r=r;
+	this.l=l;
+	this.h=h;
+	
+	
+}
+public void cal_area()
+{
+	System.out.println("Area of cone:"+(3.14*r)*(r+l));
+	
+}
+void cal_vol()
+{
+	r=4.5;
+	h=5.4;
+	System.out.println("Volume of cone:"+(3.14*r*r)*(h/3));
+	
+}
+}
+
+
+class cylinder extends area2
+{
+double r,h;
+
+void cal_area()
+{
+	r=4.5;
+	h=5.4;
+	System.out.println("Area of cylinder:"+(3.14*r*2*h)*(r*r*3.14*2));
+	
+}
+
+void cal_vol()
+{
+	r=4.5;
+	h=5.4;
+	System.out.println("Volume of cylinder:"+(3.14*r*r*h));
+	
+}
+}
+
+class box extends area2
+{
+double l,b,w;
+
+void cal_area()
+{
+	l=4.5;
+	b=5.4;
+	System.out.println("Area of box:"+(l*b));
+	
+}
+
+void cal_vol()
+{
+	l=4.5;
+	b=5.4;
+	w=7.8;
+	System.out.println("Volume of box:"+(l*b*w));
+	
+}
+}
+
+//--------------------------------------------------------------------------------------------------------------------
+
+abstract class Staff
+{
+	protected int id;
+	protected String name;
+	abstract void display();
+	
+}
+class OfficeStaff extends Staff
+{ String department;
+	OfficeStaff(String name,int id,String department)
+	{
+		this.id=id;
+		this.name=name;
+		this.department=department;
+	}
+	
+	void display()
+	{
+		System.out.println("Name:"+name+"\nId:"+id+"\nDepartment:"+department);
+	}
+}
+//--------------------------------------------------------------------------------------------------------------------
+
+ abstract class Orderr
+{
+	 int id;
+String description;
+abstract void show();
+
+	
+}
+ 
+ 
+class PurchaseddOrder extends Orderr
+{
+	String vname,cname;
+	PurchaseddOrder(int id,String description,String vname,String cname)
+	{
+		this.id=id;
+		this.description=description;
+		this.vname=vname;
+		this.cname=cname;
+	}
+	
+public	void show()
+	{
+		System.out.println("Id:"+id+"\nDescription:"+description+"\nVendor name:"+vname+"\nCustomer name:"+cname);
+	}
+}
+class SalesssOrder extends Orderr
+{
+	String vname,cname;
+	SalesssOrder(int id,String description,String vname,String cname)
+	{
+		this.id=id;
+		this.description=description;
+		this.vname=vname;
+		this.cname=cname;
+	}
+	
+public	void show()
+	{
+		System.out.println("Id:"+id+"\nDescription:"+description+"\nVendor name:"+vname+"\nCustomer name:"+cname);
+	}
+}
+//--------------------------------------------------------------------------------------------------------------------
+abstract class Account
+ {
+	 String cname;
+	 int acnt_no;
+	 double bal;
+	 abstract void credit(double amt);
+	 abstract void display();
+	abstract void cal_interest();
+	 abstract void debit(double amt);
+	 
+ }
+
+class c_accnt extends Account
+{ 
+	
+	c_accnt(String cname,int acnt_no)
+	{
+		this.cname=cname;
+		this.acnt_no=acnt_no;
+		bal=500;
+	}
+	
+	public void display()
+	{
+		System.out.println("Accnt No:"+acnt_no+"\nCustomer name:"+cname+"\nBalance:"+super.bal+" Rs");
+	}
+	public void credit(double amt)
+	{
+		super.bal+=amt;
+		display();	
+	}
+	public void debit(double amt)
+	{
+		if(amt>super.bal)
+		{
+		System.out.println("Transcation is not possible due to balance is insufficient");
+		}
+		else
+		{
+			super.bal-=amt;
+			
+			if(super.bal<=500)
+			{
+				System.out.println("Penalty of 200rs applied");
+				super.bal-=200;
+				System.out.println(super.bal);
+				
+			}
+			else
+				display();
+		}
+	}
+	public void cal_interest()
+	{
+		System.out.println("No interest");
+	}
+	
+	
+}
+
+class s_accnt extends Account
+{
+	s_accnt(String cname,int acnt_no)
+	{
+		this.cname=cname;
+		this.acnt_no=acnt_no;
+		bal=500;
+	}
+	
+	public void display()
+	{
+		System.out.println("Accnt No:"+acnt_no+"\nCustomer name:"+cname+"\nBalance:"+super.bal+" Rs");
+	}
+	public void credit(double amt)
+	{
+		super.bal+=amt;
+		//display();	
+	}
+	public void debit(double amt)
+	{
+		if(amt>super.bal)
+		{
+		System.out.println("Transcation is not possible due to balance is insufficient");
+		}
+		else
+		{
+			super.bal-=amt;
+		System.out.println(super.bal);
+		
+		}
+	}
+	public void cal_interest()
+	{
+		double intst=super.bal*Math.pow((1+(0.04/5)),5*6);
+		System.out.println("Interest:"+intst);
+	}
+}
+
+//--------------------------------------------------------------------------------------------------------------------
+
+public class july26 {
+
+	public static void main(String[] args)throws Exception {
+		// TODO Auto-generated method stub
+		int ch;
+		Scanner sc=new Scanner(System.in);
+	/*	do
+		{
+		System.out.println("1)sphere\n2)cone\n3)cylinder\n4)box\n5)Exit");
+		System.out.println("Enter your choice:");
+		ch=sc.nextInt();
+		switch(ch)
+		{
+		case 1:
+			spheres s1=new spheres(4.56);
+			s1.cal_area();
+			s1.cal_vol();
+			break;
+			
+		case 2:
+			cone c1=new cone(5.6,9.5,8.2);
+			c1.cal_area();
+			c1.cal_vol();
+			break;
+		
+		case 3:
+			cylinder cl1=new cylinder();
+			cl1.cal_area();
+			cl1.cal_vol();
+			break;
+			
+		case 4:
+		box b1=new box();
+		b1.cal_area();
+		b1.cal_vol();
+		break;
+		
+		
+		case 5:
+			System.out.println("Exited");
+			System.exit(0);
+			break;
+		}
+			
+		}while(ch<=5);
+		
+		*/
+		
+//--------------------------------------------------------------------------------------------------------------------
+		
+	/*   System.out.println("Enter the staff array size:");
+		int n=sc.nextInt();
+		OfficeStaff s1[]=new OfficeStaff[n];
+		for(int i=0;i<n;i++)
+		{
+			System.out.println("Enter the name and Id and Department:");
+			String name=sc.next();
+			int id=sc.nextInt();
+			String department=sc.next();
+			 s1[i]=new OfficeStaff(name,id,department);
+			s1[i].display();
+		}
+	*/
+//--------------------------------------------------------------------------------------------------------------------
+	/*	PurchaseddOrder p[]=new PurchaseddOrder[3];
+		 System.out.println("Enter the details purchased for 3 order:");
+			for(int i=0;i<1;i++)
+			{  
+				System.out.println("Enter the Id,description,vendor name,customer name:");
+				int id=sc.nextInt();
+				String description=sc.next();
+				String vname=sc.next();
+				String cname=sc.next();
+				p[i]=new PurchaseddOrder(id,description,vname,cname);
+				p[i].show();
+				
+			}
+			SalesssOrder c[]=new SalesssOrder[3];
+			 System.out.println("Enter the details Sales for 3 order:");
+				for(int i=0;i<1;i++)
+				{  
+					System.out.println("Enter the Id,description,vendor name,customer name:");
+					int id1=sc.nextInt();
+					String description1=sc.next();
+					String vname1=sc.next();
+					String cname1=sc.next();
+					c[i]=new SalesssOrder(id1,description1,vname1,cname1);
+					c[i].show();
+					
+				}
+			}
+}
+		*/	
+//--------------------------------------------------------------------------------------------------------------------
+		System.out.println("Enter the customer name,accnt no");
+		String cname=sc.next();
+		int accnt=sc.nextInt();
+		s_accnt s1=new s_accnt(cname,accnt);
+		c_accnt c1=new c_accnt(cname,accnt);
+		do
+		{
+			System.out.println("1)Saving accnt\n2)current accnt\n3)exit");
+			System.out.println("Enter the choice:");
+			ch=sc.nextInt();
+			switch(ch)
+		{
+			case 1:
+			     System.out.println("1)deposit\n2)withdrawl");
+				int chh=sc.nextInt();
+				switch(chh)
+				{
+			      case 1:
+					System.out.println("Enter the amount to deposit:");
+					double amt=sc.nextDouble();
+					s1.credit(amt);
+					s1.display();
+					s1.cal_interest();
+					break;
+				case 2:
+					System.out.println("Enter the amount to withdraw:");
+					double amt2=sc.nextDouble();
+					s1.debit(amt2);
+					s1.display();
+					s1.cal_interest();
+					break;
+					
+					default:
+						System.out.println("Entered wrong choice");
+						System.out.println("Try again");
+						
+						
+				}
+				break;
+				
+				
+		case 2:
+			
+				System.out.println("1)deposit\n2)withdrawl");
+				int chh1=sc.nextInt();
+				switch(chh1)
+			{
+				case 1:
+					System.out.println("Enter the amount to deposit:");
+					double amt=sc.nextDouble();
+					c1.credit(amt);
+					c1.display();
+					break;
+				
+				case 2:
+					System.out.println("Enter the amount to withdraw:");
+					double amt1=sc.nextDouble();
+					c1.debit(amt1);
+					c1.display();
+					break;
+					
+					default:
+						System.out.println("Entered wrong choice");
+						System.out.println("Try again");
+						System.exit(0);
+						
+			}
+				break;
+			
+			default:
+				System.out.println("Entered wrong choice");
+				System.out.println("Try again");
+				break;
+		}
+				
+	}while(ch<=3);
+	}
+}
+
+//--------------------------------------------------------------------------------------------------------------------
+			
+	
+
+
