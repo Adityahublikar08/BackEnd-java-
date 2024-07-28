@@ -1,0 +1,543 @@
+package oit;
+import java.util.*;
+/*
+interface IntOperations
+{
+	abstract void even_odd();
+	abstract void pos_neg();
+	abstract void prime();
+	abstract void fact();
+	abstract void sum();
+	
+}
+ class MyNumber implements IntOperations
+ {
+	 private int n;
+	 MyNumber()
+	 {
+		 this.n=n;
+	 }
+	 MyNumber(int n)
+	 {
+		 this.n=n;
+	 }
+	 
+	public  void even_odd()
+	 {
+		 if(n%2==0)
+			 System.out.println("Even");
+		 else if(n==0)
+			 System.out.println("Neigher even nor odd");
+		 else
+			 System.out.println("Odd");
+	 }
+	
+	public void pos_neg()
+	{
+		 if(n>0)
+			 System.out.println("Positive");
+		 else if(n==0)
+			 System.out.println("Zero");
+		 else
+			 System.out.println("negative");
+	}
+	
+	public void prime()
+	{int flag=0;
+		for(int i=2;i<n;i++)
+		{
+			if(n%i==0)
+				flag=1;
+			    break;
+				
+		}
+		if(flag==1)
+			 System.out.println("Not prime");
+		else
+			 System.out.println("Prime");
+			
+	}
+	
+	public void fact()
+	{ int fact=1;
+		for(int i=n;i>0;i--)
+		{
+			fact*=i;
+			
+		}
+		System.out.println("Factorial:"+fact);
+		
+	}
+	
+	public void sum()
+	{
+		int sum=0,n1;
+		while(n>0)
+		{
+			n1=n%10;
+			sum+=n1;
+			n=n/10;
+		}
+		System.out.println("Sum:"+sum);
+	}
+ }
+*/
+//--------------------------------------------------------------------------------------------------------------------
+/*
+interface Shape
+{
+	abstract void area();
+}
+class Circle implements Shape
+{
+	Scanner sc=new Scanner(System.in);
+	double r;
+	 public void area()
+	 {
+		 System.out.println("Enter teh radius:");
+		 r=sc.nextDouble();
+		 System.out.println("Area of circle:"+(3.14*r*r));
+	 }
+	
+}
+
+class Sphere implements Shape
+{
+	Scanner sc=new Scanner(System.in);
+	double r;
+	 public void area()
+	 {
+		 System.out.println("Enter teh radius:");
+		 r=sc.nextDouble();
+		 System.out.println("Area of Sphere:"+(4*3.14*r*r));
+	 }
+}
+ 
+*/
+//--------------------------------------------------------------------------------------------------------------------
+/*interface Operation
+{
+	void area();
+	void volume();
+	final double pi=3.14;
+}
+class Cylinder12 implements Operation
+{ Scanner sc=new Scanner(System.in);
+	double r,h;
+	public void area()
+	{
+		 System.out.println("Enter the radius:");
+		 r=sc.nextDouble();
+		 System.out.println("Enter the height:");
+		 h=sc.nextDouble();
+		 System.out.println("Area of cylinder:"+((2*pi*r*h)+2*pi*r*r));
+	}
+	public void volume()
+	{
+		 System.out.println("Enter the radius:");
+		 r=sc.nextDouble();
+		 System.out.println("Enter the height:");
+		 h=sc.nextDouble();
+		 System.out.println("volume of Sphere:"+(pi*r*r*h));
+	}
+}
+*/
+//--------------------------------------------------------------------------------------------------------
+/*
+interface marker
+{
+	void display();
+}
+class produt implements marker
+{
+	int id,pqnty;
+	String pname;
+	double pcost;
+	produt()
+	{
+		id=0;
+		pname="";
+		pqnty=0;
+		pcost=0;
+	}
+	produt(int id,int pqnty,String name,double cost)
+	{
+		this.id=id;
+		pname=name;
+		this.pqnty=pqnty;
+		pcost=cost;
+		
+	}
+	public void display()
+	{
+		System.out.println("Product id:"+id+"\nProduct Name:"+pname+"\nQuantity:"+pqnty+"\ncost:"+pcost);
+	}
+	
+}
+*/
+//----------------------------------------------------------------------------------------------------------------------
+/*interface cube
+{
+	void cal();
+}
+class cube1 implements cube
+{Scanner sc=new Scanner(System.in);
+	int n;
+public void cal()
+{
+System.out.println("Enter the value of n");
+n=sc.nextInt();
+System.out.println("cube:"+(n*n*n));
+}
+	
+}
+*/
+//---------------------------------------------------------------------------------------------------------------------
+/*interface stack
+{
+	void push();
+	void pop();
+	void peek();
+	void empty();
+}
+
+class MyStack implements stack
+{  Scanner sc=new Scanner(System.in); 
+	
+	String a[]=new String[5];
+	static int  i=0;
+	MyStack()
+	{
+		a[0]="";
+	}
+	int n;
+	public void push()
+	{if(i<5)
+	{
+		System.out.println("Enter the element:");
+		String num=sc.next();
+		a[i]=num;
+		
+		 n=i++;
+	}
+	else
+	{
+		System.out.println("stack is full");
+	}
+		
+		
+	}
+	
+	public void pop()
+	{
+		//if(a[i]!="")
+		System.out.println(""+a[n]+" poped");
+		a[n]="";
+		n--;
+		
+	}
+	
+	public void peek()
+	{
+		
+		System.out.println(""+a[n]+" is at top");
+		
+		
+	}
+	public void display()
+	{
+		for(int i=0;i<5;i++)
+		{
+			
+				System.out.print(" "+a[i]);
+			
+		}
+	}
+	int f=0;
+	public void empty()
+	{
+		
+		for(int i=0;i<5;i++)
+		{	if(a[i]==" ")
+		{
+			f=0;
+			
+		}
+		else
+		{	f=1;
+		break;
+		}
+		}
+		
+		if(f==0)
+		{
+			System.out.println("Stack is empty");
+		}
+	}
+}
+*/
+interface CreditCardInterface
+{
+	void viewCreditAmount();
+	void viewpin();
+	void changepin();
+	void usecard();
+	void paybal();
+	
+}
+class Customer implements  CreditCardInterface 
+{
+	Scanner sc=new Scanner(System.in);
+	String name;
+	int card_no;
+	int pin;
+	double credit_amt;
+	Customer()
+	{
+		credit_amt=0;
+		name="x";
+		card_no=1234;
+		pin=1154;
+	}
+	
+	public void viewCreditAmount()
+	{
+		System.out.println("Credit amount:"+credit_amt);
+	}
+	
+public 	void viewpin()
+	{
+		System.out.println("Pin No:"+pin);
+	}
+	
+	public void changepin()
+	{
+		System.out.println("Enter the old pin:");
+		int opin=sc.nextInt();
+		if(opin==1154)
+		{
+			System.out.println("Enter the new Pin:");
+			int npin=sc.nextInt();
+			pin=npin;
+			System.out.println("Pin Changed succesfully");
+		}
+		else
+		{
+			System.out.println("Entered the wrong old Pin:");
+
+		}
+	}
+	
+	public void paybal()
+	{
+		System.out.println("Balance is Payed");
+	}
+	public void usecard()
+	{
+		
+	}
+	
+}
+
+class RegularCard extends Customer
+{
+	double maxCreditLimit=120000;
+}
+class GoldCard extends Customer
+{
+	double maxCreditLimit=120000000;
+	String special_previlege;
+}
+//--------------------------------------------------------------------------------------------------------------------
+public class july27 {
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		int ch;
+	/*	System.out.println("Enter the no:");
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		MyNumber m=new MyNumber(n);
+		m.even_odd();
+		m.pos_neg();
+		m.fact();
+		m.sum();
+		m.prime();
+		*/
+//--------------------------------------------------------------------------------------------------------------------
+	/*Circle c=new Circle();
+	c.area();
+	Sphere s=new Sphere();
+	s.area();
+	*/
+//--------------------------------------------------------------------------------------------------------------------
+		/*
+		Cylinder12 c=new Cylinder12();
+		c.area();
+		c.volume();
+		*/
+//--------------------------------------------------------------------------------------------------------------------
+/*	System.out.println("Enter the array size:");
+	int n=sc.nextInt();
+	produt a[]=new produt[n];
+	System.out.println("Enter the "+n+" details of product");
+	for(int i=0;i<n;i++)
+	{
+		System.out.println("Enter the id,name,quantity,cost:");
+		int id=sc.nextInt();
+		String name=sc.next();
+		int q=sc.nextInt();
+		double c=sc.nextDouble();
+		a[i]=new produt(id,q,name,c);
+		a[i].display();
+	}
+*/	
+//-------------------------------------------------------------------------------------------------------------------	
+	/*cube1 c=new cube1();
+	c.cal();
+	*/
+//-----------------------------------------------------------------------------------------------------------------------
+		/*int ch;
+		MyStack a=new MyStack();
+		do
+		{
+			
+			System.out.println("\n1)push\n2)pop\n3)peek\n4)exit\n5)display\n6)IsEmpty");
+			System.out.println("Enter ur choice:");
+			ch=sc.nextInt();
+			switch(ch)
+			{
+			case 1:
+				a.push();
+				break;
+				
+			case 2:
+				a.pop();
+				break;
+				
+			case 3:
+				a.peek();
+				break;
+				
+			case 4:
+				System.exit(0);
+				break;
+				
+			case 5:
+				a.display();
+				break;
+				
+			case 6:
+				a.empty();
+				break;
+				
+			}
+			
+		}while(ch<=6);
+		*/
+//------------------------------------------------------------------------------------------------------------------
+		int ch1;
+		RegularCard r1=new RegularCard();
+		GoldCard r2=new GoldCard();
+		do
+		{System.out.println("1)RegularUser\n2)GoldCardUser\n3)Exit");
+		System.out.println("Enter the choice:");
+		ch1=sc.nextInt();
+		switch(ch1)
+		{
+		case 1:
+			System.out.println("1)Use Card\n2)Pay Balance\n3)change Pin");
+			System.out.println("Enter the choice:");
+			ch=sc.nextInt();
+			switch(ch)
+			{
+			case 1:
+				System.out.println("Enter the amount:");
+				double amt=sc.nextDouble();
+				System.out.println("Enter the credit card pin:");
+				int cpin=sc.nextInt();
+				if(cpin==r1.pin)
+				{
+				if(amt<=r1.maxCreditLimit)
+				{
+					r1.credit_amt+=amt;
+					System.out.println(""+amt+" Rs payment from your credit card is done");
+				}
+				else
+				{
+					System.out.println("Amount is higher than Crdit card limit:");
+				}
+				}
+				else
+				{
+					System.out.println("Wrong credit card pin:");
+				}
+				break;
+				
+			case 2:
+				r1.viewCreditAmount();
+				r1.paybal();
+				break;
+				
+			case 3:
+				r1.changepin();
+				break;
+				
+			 default:
+				 System.out.println("Enter wrong choice");
+				 break;
+				
+			}
+			
+			break;
+			
+		case 2:
+			System.out.println("1)Use Card\n2)Pay Balance\n3)change Pin");
+			System.out.println("Enter the choice:");
+			ch=sc.nextInt();
+			switch(ch)
+			{
+			case 1:
+				System.out.println("Enter the amount:");
+				double amt=sc.nextDouble();
+				if(amt<=r2.maxCreditLimit)
+				{
+					r2.credit_amt+=amt;
+					System.out.println(""+amt+" Rs payment from your credit card is done");
+				}
+				else
+				{
+					System.out.println("Amount is higher than Crdit card limit:");
+				}
+				break;
+				
+			case 2:
+				r2.viewCreditAmount();
+				r2.paybal();
+				break;
+				
+			case 3:
+				r2.changepin();
+				break;
+				
+			 default:
+				 System.out.println("Enter wrong choice");
+				 break;
+				
+			}
+			break;
+			
+			
+		case 3:
+			 System.out.println("-----------Exit from menu---------------");
+			System.exit(0);
+			break;
+			
+		}
+		
+		
+		
+		}while(ch1<=3);
+	}
+
+}
