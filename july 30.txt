@@ -1,0 +1,405 @@
+package oit;
+import java.util.*;
+
+class balls
+{
+	Scanner sc=new Scanner(System.in);
+	double price;
+	public void getPrice()
+	{
+		System.out.println("Enter the price:");
+		price=sc.nextDouble();
+		
+	}
+}
+public class july30_balls {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+
+
+
+package oit;
+import java.util.*;
+import oit.july30_balls.*;
+
+class ironBall extends balls
+{
+	void display()
+	{
+		System.out.println("iron ball price :"+price);
+	}
+}
+interface bouncable 
+{
+	void bounce();
+}
+class cricket extends balls implements bouncable
+{
+	void display()
+	{
+		System.out.println("cricket ball price :"+price);
+	}
+	
+	public void bounce()
+	{
+		System.out.println("Cricket ball is bouncable");
+	}
+	
+}
+
+
+public class july30_ballsType {
+
+	public static void main(String[] args) {
+		
+ironBall i=new ironBall();
+i.getPrice();
+i.display();
+cricket c=new cricket();
+c.getPrice();
+c.display();
+c.bounce();
+	}
+
+}
+
+
+package oit;
+import java.util.*;
+
+abstract class Employee3
+{
+	int eid;
+	String ename;
+	double bsal;
+	
+	Employee3()
+	{
+		eid=0;
+		ename="x";
+		bsal=0;
+	}
+	
+	Employee3(int eid,String ename,double bsal)
+	{
+		this.eid=eid;
+		this.ename=ename;
+		this.bsal=bsal;
+		
+	}
+	
+	public void display()
+	{
+		System.out.println("Name:"+ename+"\nId:"+eid+"\nBasic salary:"+bsal);
+	}
+	abstract double  cal();
+	
+}
+
+class fulltimeEmployee extends Employee3
+{
+	
+	double ta,da,hra,netsal;
+	fulltimeEmployee()
+	{
+		ta=0;
+		da=0;
+		hra=0;
+	}
+	
+	fulltimeEmployee(int eid,String ename,double bsal,double ta,double da,double hra)
+	{ super(eid,ename,bsal);
+		this.ta=ta;
+		this.da=da;
+		this.hra=hra;
+	}
+	
+	double cal()
+	{
+		netsal=bsal+(bsal*ta)+(bsal*da)+(bsal*hra);
+		return netsal;
+	}
+    public  void display()
+    {
+    	System.out.println("Name:"+ename+"\nId:"+eid+"\nBasic salary:"+bsal+"\nta="+(bsal*ta)+"\nda="+(bsal*da)+"\nhra="+(bsal*hra));
+    }
+}
+
+class parttimeEmployee extends Employee3
+{
+	double ta,perhour,hour,netsal;
+	parttimeEmployee()
+	{
+		ta=0;
+		perhour=0;
+		hour=0;
+	}
+	parttimeEmployee(int eid,String ename,double bsal,double ta,double perhour,double hour)
+	{ super(eid,ename,bsal);
+		this.ta=ta;
+		this.perhour=perhour;
+		this.hour=hour;
+	}
+	double cal()
+	{
+		netsal=(perhour*hour*ta)+perhour*hour;
+		return netsal;
+	}
+	 public  void display()
+	    {
+	    	System.out.println("Name:"+ename+"\nId:"+eid+"\nbasic salary="+(perhour*hour)+"\nta="+(perhour*hour*ta));
+	    }
+}
+
+public class july30_emp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+   Employee3 e[]=new Employee3[3];
+   System.out.println("\n1)Full time\n2)partTime");
+   System.out.println("Enter the choice:");
+   int ch=sc.nextInt();
+   int eid;
+   String ename;
+   double bsal,hra,ta,da,hour,hour_rate;
+   switch(ch)
+   {
+   case 1 :
+	   for(int i=0;i<3;i++)
+	   {
+		   System.out.println("Enter the ename,eid,basic salary,ta,da,hra:");
+		   ename=sc.next();
+		   eid=sc.nextInt();
+		   bsal=sc.nextDouble();
+		   ta=sc.nextDouble();
+		   da=sc.nextDouble();
+		   hra=sc.nextDouble();
+		   
+		   e[i]=new fulltimeEmployee(eid,ename,bsal,ta,da,hra);
+		   e[i].display();
+		   System.out.println("Net salary:"+e[i].cal());
+		   
+	   }
+	   break;
+	   
+   case 2 :
+	   for(int i=0;i<3;i++)
+	   {
+		   System.out.println("Enter the ename,eid,,ta,hour,hour_rate");
+		   ename=sc.next();
+		   eid=sc.nextInt();
+		   ta=sc.nextDouble();
+		   hour=sc.nextDouble();
+		  hour_rate=sc.nextDouble();
+	
+		   
+		   e[i]=new parttimeEmployee(eid,ename,(hour*hour_rate),ta,hour_rate,hour);
+		   e[i].display();
+		   System.out.println("Net salary:"+e[i].cal());
+		  
+		   
+	   }
+	   break;
+	   default:
+		   System.out.println("Wrong choice");
+		   break;
+   }
+   
+	}
+
+}
+
+
+
+package oit;
+import java.util.*;
+
+interface Printer
+{
+	void accept();
+	void print();
+}
+abstract class shape
+{
+	abstract void print();
+	
+}
+abstract class rectangle
+{
+	abstract void print();
+	
+}
+
+class Employee4 implements Printer
+{Scanner sc=new Scanner(System.in);
+	int id;
+	String name;
+	double sal;
+	
+	public void accept()
+	{
+		System.out.println("Enter the id,name,salary:");
+		id=sc.nextInt();
+		name=sc.next();
+		sal=sc.nextDouble();
+	}
+	
+	public void print()
+	{
+		System.out.println("Id:"+id+"\nName:"+name+"\nsalary:"+sal);
+	}
+	
+}
+
+class circle implements Printer
+{
+	Scanner sc=new Scanner(System.in);
+	double r;
+	public void accept()
+	{
+		System.out.println("Enter the radius:");
+		r=sc.nextDouble();
+	}
+	public void print()
+	{
+		System.out.println("Area of circle:"+(3.14*r*r));
+	}
+	
+}
+class date implements Printer
+{
+	Scanner sc=new Scanner(System.in);
+	int m,d,y;
+	public void accept()
+	{
+		System.out.println("Enter the date,month,year:");
+		d=sc.nextInt();
+		m=sc.nextInt();
+		y=sc.nextInt();
+	}
+	public void print()
+	{
+		System.out.println("Date:"+d+"/"+m+"/"+y);
+	}
+	
+}
+
+public class july30_printable4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		date d=new date();
+		d.accept();
+		d.print();
+		
+		circle c=new circle();
+		c.accept();
+		c.print();
+		
+		Employee4 e=new Employee4();
+		e.accept();
+		e.print();
+		
+
+	}
+
+}
+
+
+
+
+package oit;
+import java.util.*;
+
+/*
+class emp
+{
+	Scanner sc=new Scanner(System.in);
+	int id;
+	String name;
+	double sal;
+	
+	void accept()
+	{
+		System.out.println("Enter the id,name,salary:");
+		id=sc.nextInt();
+		name=sc.next();
+		sal=sc.nextDouble();
+	}
+	void display()
+	{
+		System.out.println(" id:"+id+"\nname:"+name+"\nsalary:"+sal);
+	}
+}
+
+interface sal
+{
+	double tax=0.05;
+	void cal();
+}
+
+class emp1 extends emp implements sal
+{
+	public void cal()
+	{
+	System.out.println("gross salary:"+(sal+(sal*0.4)+(sal*0.3)+(sal*0.2)))	;
+	}
+}
+//---------------------------------------------------------------------------------------------------------------------
+ * /*1)write class number_Genrator which has 1  int variable  num write accept method which accept the numbers using scanner
+ * write method print_Table which will be override in another class;
+ * write the class Math_Operations which uses number_genaerator and implement print table method in this class;
+ * */
+/*
+abstract class number_generator
+{
+	Scanner sc=new Scanner(System.in);
+	int num;
+	abstract void accept();
+	abstract void print_Table();
+	
+}
+
+class math_Operation extends number_generator
+{
+	void accept()
+	{
+		System.out.println("Enter the no:");
+		num=sc.nextInt();
+	}
+	
+	void print_Table()
+	{
+		for(int i=1;i<11;i++)
+		{
+			System.out.println(num+"X"+i+"="+(num*i));	
+		}
+		
+	}
+}
+*/
+//--------------------------------------------------------------------------------------------------------------
+public class july30 {
+
+	public static void main(String[] args) {
+		/*emp1 e=new emp1();
+		e.accept();
+		e.display();
+		e.cal();
+		*/
+//------------------------------------------------------------------------------------------------
+		/*math_Operation o1=new math_Operation();
+		o1.accept();
+		o1.print_Table();
+*/
+//------------------------------------------------------------------------------------------------------------
+	}
+
+}
