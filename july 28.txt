@@ -1,0 +1,217 @@
+package oit;
+
+
+import java.util.*;
+
+interface Queue {
+    void enque();
+    void deque();
+    void peek();
+    void isempty();
+    void isfull();
+}
+
+class Q implements Queue {
+    Scanner sc = new Scanner(System.in);
+    int a[] = new int[5];
+    int front = 0, rear = 0, count = 0;
+
+    public void enque() {
+        if (count == a.length) {
+            System.out.println("Queue is full");
+        } else {
+            System.out.println("Enter the element:");
+            int num = sc.nextInt();
+            a[rear] = num;
+            rear = (rear + 1) % a.length;
+            count++;
+        }
+    }
+
+    public void deque() {
+        if (count == 0) {
+            System.out.println("Queue is empty");
+        } else {
+            System.out.println(a[front] + " is dequeued");
+            a[front] = 0;
+            front = (front + 1) % a.length;
+            count++;
+        }
+    }
+
+    public void peek() {
+        if (count == 0) {
+            System.out.println("Queue is empty");
+        } else {
+            System.out.println(a[front] + " is at the front");
+        }
+    }
+
+    public void isempty() {
+        if (count == 0) {
+            System.out.println("Queue is empty");
+        } else {
+            System.out.println("Queue is not empty");
+        }
+    }
+
+    public void isfull() {
+        if (count == a.length) {
+            System.out.println("Queue is full");
+        } else {
+            System.out.println("Queue is not full");
+        }
+    }
+
+    public void display() {
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(" " + a[i]);
+        }
+    }
+}
+*/
+//--------------------------------------------------------------------------------------------------------------
+
+/*interface stack1
+{
+	void push();
+	void pop();
+	void peek();
+	void empty();
+}
+
+class myStack implements stack1
+{  Scanner sc=new Scanner(System.in); 
+	
+char a[]=new char[100];
+	static int  i=0;
+	MyStack()
+	{
+		a[0]="";
+	}
+	
+	int n;
+	public void push(char b)
+	{if(i<20)
+	{
+	
+		a[i]=b;
+		
+		 n=i++;
+	}
+	else
+	{
+		System.out.println("stack is full");
+	}
+		
+		
+	}
+	
+	public void pop()
+	{
+		//if(a[i]!="")
+		System.out.println(""+a[n]+" poped");
+		a[n]="";
+		i--;
+		
+	}
+	
+	public void peek()
+	{
+		
+		System.out.println(""+a[n]+" is at top");
+		
+		
+	}
+	public void display()
+	{
+		for(int i=0;i<a.length;i++)
+		{
+			
+				System.out.print(" "+a[i]);
+			
+		}
+	}
+	int f=0;
+	public void empty()
+	{
+		/*if(a[i].equals(" "))
+		{
+			System.out.println("Stack is empty");
+		}
+		else
+		{	
+			System.out.println("Stack is not empty");
+		}
+		
+		
+		*/
+		
+	}
+	
+}
+
+
+public class july28 {
+    public static void main(String[] args) {
+        int ch;
+        Scanner sc = new Scanner(System.in);
+       /* Q a = new Q();
+        do {
+            System.out.println("\n1) Enqueue\n2) Dequeue\n3) Peek\n4) Exit\n5) Display\n6) IsEmpty\n7) IsFull");
+            System.out.println("Enter your choice:");
+            ch = sc.nextInt();
+            switch (ch) {
+                case 1:
+                    a.enque();
+                    break;
+                case 2:
+                    a.deque();
+                    break;
+                case 3:
+                    a.peek();
+                    break;
+                case 4:
+                    System.exit(0);
+                    break;
+                case 5:
+                    a.display();
+                    break;
+                case 6:
+                    a.isempty();
+                    break;
+                case 7:
+                    a.isfull();
+                    break;
+            }
+        } while (ch <= 7);
+        */
+//----------------------------------------------------------------------------------------------------------
+   /* System.out.println("enter the expression:");
+    String exp=sc.next();
+   myStack s=new myStack(); 
+    String pf="";
+    for(int i=0;i<exp.length();i++)
+    {
+    	if(exp.charAt(i)!='+'|| exp.charAt(i)!='-'||exp.charAt(i)!='*'||exp.charAt(i)!='/'||exp.charAt(i)!='('||exp.charAt(i)!=')')
+    	{
+    		pf=pf+exp.charAt(i);
+    		System.out.println(pf);
+    	}
+    	else
+    	{
+    		s.push(exp.charAt(i));
+    	}
+    	
+    	
+    }
+    System.out.println(pf);
+    s.display();    
+    
+    */
+    
+    */
+    }
+    */
+}
+
