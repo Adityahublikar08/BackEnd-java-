@@ -1,0 +1,184 @@
+package oit;
+import java.util.*;
+
+/*
+
+class Employee5 
+{	int eid;
+	String name;
+	double salary;
+	static int cnt;
+	Employee5()//defualt constructor
+	{
+		cnt++;
+		eid=101;
+		name="Sam";
+		salary=9876.90;		
+	}
+	Employee5(int eid,String name,double salary)//parameterized constuctor
+	{
+		cnt++;
+		this.eid=eid;
+		this.name=name;
+		this.salary=salary;
+	}	
+	void display()
+	{
+		System.out.println(eid+"\t"+name+"\t"+salary);		
+	}	
+	static void count()
+	{
+		System.out.println("No of object="+cnt);	
+	}	
+}
+public class august1
+{
+
+	public static void main(String[] args) 
+	{
+		int eid,i;
+		String name;
+		double salary;
+		Scanner sc=new Scanner (System.in);
+		Employee5 e1=new Employee5();
+		e1.display();
+		Employee5.count();
+		System.out.println("Enter id ,name & salary");
+		eid=sc.nextInt();
+		name=sc.next();
+		salary=sc.nextDouble();
+		Employee5 e2=new Employee5(eid,name,salary);
+		e2.display();
+		Employee5.count();
+		System.out.println("Enter id ,name & salary");
+		eid=sc.nextInt();
+		name=sc.next();
+		salary=sc.nextDouble();
+		Employee5 e3=new Employee5(eid,name,salary);
+		e3.display();
+		Employee5.count();
+		
+	}
+}
+
+*/
+
+class Student2
+{
+	int rno;
+	String name;
+	float per;
+	static int cnt=0;
+	Student2()//default constructor
+	{
+		rno=0;
+		name="ABC";
+		per=0.0F;
+		cnt++;
+	}
+	Student2(int rno,String name,int per)
+	{
+		this.rno=rno;
+		this.name=name;
+		this.per=per;
+		cnt++;
+	}
+	
+	void Display()
+	{
+		System.out.println("Roll No : "+rno+" Name : "+name+"Percentage : "+per);
+	}
+	
+	void accept()
+	{
+		Scanner scr=new Scanner(System.in);
+		System.out.println("Roll No : ");
+		rno=scr.nextInt();
+		System.out.println("Name : ");
+		name=scr.next();
+		System.out.println("Percentage : ");
+		per=scr.nextFloat();
+	}
+	/*
+	static void sortStud(Student2[] D)
+	{
+	int i,j;
+	Student2 temp;
+	for(i=0;i<cnt;i++)
+        {
+		for(j=i+1;j<cnt;j++)
+        	{
+			if(D[i].per>D[j].per)
+			{
+			temp=D[i];
+			D[i]=D[j];
+			D[j]=temp;
+			}
+		}
+	}
+	}*/
+	/*static void sortStud(Student2[] D)
+	{
+	int i,j;
+	Student2 temp;
+	for(i=0;i<cnt;i++)
+        {
+		for(j=i+1;j<cnt;j++)
+        	{
+			if(D[i].rno>D[j].rno)
+			{
+			temp=D[i];
+			D[i]=D[j];
+			D[j]=temp;
+			}
+		}
+	}
+	}*/
+	
+	static void sortStud(Student2[] D)
+	{
+	int i,j;
+	Student2 temp;
+	for(i=0;i<cnt;i++)
+        {
+		for(j=i+1;j<cnt;j++)
+        	{
+			if(D[i].rno<D[j].rno)
+			{
+			temp=D[i];
+			D[i]=D[j];
+			D[j]=temp;
+			}
+		}
+	}
+	}
+}
+	
+	class august1
+	{
+	
+	public static void main(String args[])
+	{
+		Scanner scr=new Scanner(System.in);
+		System.out.println("Enter How Many Students ? :");
+		int tot=scr.nextInt();
+		int i;
+		Student2 []D=new Student2[tot];//array
+		for(i=0;i<tot;i++)
+		{
+		D[i]=new Student2();//object
+		D[i].accept();
+		}
+		for(i=0;i<tot;i++)
+                		{
+		D[i].Display();
+		}
+		Student2.sortStud(D);
+		System.out.println("After Sorting");
+		for(int i1=0;i1<tot;i1++)
+		{
+	        D[i1].Display();
+		}
+	}
+	
+}
