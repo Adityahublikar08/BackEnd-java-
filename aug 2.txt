@@ -1,0 +1,43 @@
+package oit;
+import java.util.*;
+
+public class august3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+/*		
+		int a,b;
+		System.out.println("Enter the value of a and b:");
+		a=sc.nextInt();
+		b=sc.nextInt();
+		int c;
+		try
+		{
+			c=a/b;
+			System.out.println("Division:"+c);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		finally
+		{
+		System.out.println("finall block");
+		}
+		System.out.println("Adition:"+(a+b));
+		System.out.println("subtraction:"+(a-b));
+		System.out.println("Multiplication:"+(a*b));
+*/
+		try
+		{
+			int a[]={1,2,3,4};
+			a[5]=25/0;
+			System.out.println(a[10]);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);		}
+	}
+
+}
