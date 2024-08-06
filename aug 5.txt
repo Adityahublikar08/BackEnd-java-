@@ -1,0 +1,716 @@
+package oit;
+import java.util.*;
+/*
+class CheckSum extends Exception
+{
+	public String toString()
+	{
+		return"no is not valid bcoz to check sum we requird min 2 digit no";
+	}
+}
+
+public class august5 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int n;
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter the no:");
+n=sc.nextInt();
+try
+{
+	if(n>=0 && n<=9)
+	{
+		throw new CheckSum();
+	}
+	else
+	{
+		int first=0;
+		int last=n%10;
+		while(n>0)
+		{
+			first=n%10;
+			n=n/10;
+		}
+		System.out.println("sum :"+(first+last));
+	}
+}
+catch(CheckSum e)
+{
+	System.out.println(e);
+}
+*/
+
+/*
+class CheckName extends Exception
+{
+	public String toString()
+	{
+		return "name is not valid";
+	}
+}
+public class august5 {
+
+	public static void main(String[] args) {
+
+	Scanner sc=new Scanner(System.in);
+	String name;
+	System.out.println("Enter the Name:");
+	name=sc.next();
+	try
+	{
+		int cnt=0;
+		for(int i=0;i<name.length();i++)
+		{
+			char ch=name.charAt(i);
+			if((ch>='a' && ch<='z')||(ch>='A' && ch<='Z') )
+			{
+			cnt++;	
+			}
+			else
+			{
+				throw new CheckName();
+			}
+		}
+		if(cnt==name.length())
+		{
+			System.out.println("valid name");
+		}
+		else
+		{
+			throw new CheckName();
+		}
+		
+	}
+	catch(CheckName e)
+	{
+		System.out.println(e);
+	}
+	*/
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*
+3)Create a class Student with attributes rollno, 
+name, age and course. Initialize values through 
+parameterized constructor. If age of student 
+is not in between 15 and 21 then generate user-defined 
+exception “AgeNotWithinRangeException”. If name contains
+numbers or special symbols raise exception “NameNotValidException”.
+Define the two exception classes.*/
+/*
+
+class Student8 {
+    int rno, age;
+    String name, course;
+
+    Student8(int rno, int age, String name, String course) {
+        this.age = age;
+        this.rno = rno;
+        this.name = name;
+        this.course = course;
+    }
+}
+
+class CheckAge extends Exception {
+    public String toString() {
+        return "Age is not valid";
+    }
+}
+
+class CheckName extends Exception {
+    public String toString() {
+        return "Name is not valid";
+    }
+}
+
+public class august5 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the array size:");
+        int n = sc.nextInt();
+        Student8[] a = new Student8[n];
+        System.out.println("Enter the " + n + " student details");
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter the name, roll no, age, course:");
+            String name = sc.next();
+            int rno = sc.nextInt();
+            int age = sc.nextInt();
+            String c = sc.next();
+
+            try {
+                if (age >= 18 && age <= 25) {
+                    try {
+                        char ch;
+                        int cnt = 0;
+                        for (int i1 = 0; i1 < name.length(); i1++) {
+                            ch = name.charAt(i1);
+                            if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+                                cnt++;
+                            } else {
+                                throw new CheckName();
+                            }
+                        }
+                        if (cnt == name.length()) {
+                            a[i] = new Student8(rno, age, name, c); 
+                        }
+                    } catch (CheckName e) {
+                        System.out.println(e);
+                    }
+                } else {
+                    throw new CheckAge();
+                }
+            } catch (CheckAge e) {
+                System.out.println(e);
+            }
+        }
+
+        sc.close();
+
+        System.out.println("Student Details:");
+        for (Student8 student : a) {
+            if (student != null) {
+                System.out.println("Name: " + student.name + ", Roll No: " + student.rno + ", Age: " + student.age + ", Course: " + student.course);
+            }
+        }
+    }
+}
+*/
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*
+4) Define Exceptions VowelException ,BlankException, 
+ExitException. Write another class Test which reads a character.
+If it is a vowel, throw VowelException,if it is blank throw 
+BlankException and for a character 'X' throw an ExitException and
+terminate program. For any other character, display “Valid character”.
+*/
+/*
+class VowelException extends Exception
+{
+	public String toString()
+	{
+		return "there is vowel which is not allowed";
+	}
+}
+class BlankException extends Exception
+{
+	public String toString()
+	{
+		return "there is blank space which is not allowed";
+		
+	}
+}
+class ExitException extends Exception
+{
+	public String toString()
+	{
+		return "there X char which is not allowed";
+	}
+}
+public class august5 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the String:");
+        String s=sc.next();
+        try
+        {
+        	char ch;
+        	for(int i=0;i<s.length();i++)
+        	{
+        		ch=s.charAt(i);
+        		if(ch=='a'||ch=='A'||ch=='e'||ch=='E'||ch=='i'||ch=='I'|| ch=='o'||ch=='O'||ch=='u'||ch=='U')
+        		{
+        			throw new VowelException();
+        		}
+        		else
+        		{
+        			try
+        			{
+        				if(s.charAt(i)==' ')
+            			{
+            				throw new BlankException();
+            			}
+            			else
+            			{
+            				try
+            				{
+            					if(s.charAt(i)=='x'|| s.charAt(i)=='X')
+                				{
+                					throw new ExitException();
+                					
+                				}
+            					else
+            					{
+            						System.out.println("valid String");
+            					}
+            				}
+            				catch(ExitException e)
+            				{
+            					System.out.println(e);
+            				}
+            				finally
+            				{
+            					System.exit(0);
+            				}
+            			}
+        			}
+        			catch(BlankException e)
+        			{
+        				System.out.println(e);
+        			}
+        			
+        		}
+        		
+        	}
+        }
+        catch(VowelException e)
+        {
+        	System.out.println(e);
+        }
+    }
+}
+*/
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*
+class ValidateDate
+{
+	int d,m,y;
+	ValidateDate(int d,int m,int y)
+	{
+		this.d=d;
+		this.m=m;
+		this.y=y;
+	}
+	
+	void display()
+	{
+		System.out.println(d+"/"+m+"/"+y);
+	}
+}
+
+class ValidMonth extends Exception
+{
+	public String toString()
+	{
+		return "invalid Month";
+	}
+}
+class ValidDate extends Exception
+{
+	public String toString()
+	{
+		return "invalid date";
+	}
+}
+
+public class august5 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the date,month,year:");
+        int d=sc.nextInt();
+        int m=sc.nextInt();
+        int y=sc.nextInt();
+        
+        try {
+        	if(y>=1111 && y<=9999)
+        	{
+        		try
+        		{
+        		if(m>=1 && m<=12)
+        		{
+        			try
+        			{
+        				switch(m)
+        				{
+        				case 1:
+        				case 3:
+        				case 5:
+        				case 7:
+        				case 8 :
+        				case 10 :
+        				case 12:
+        					if(d>=1 && d<=31)
+        					{
+        						System.out.println("valida date");
+        						ValidateDate s=new ValidateDate(d,m,y);
+        						s.display();
+        					}
+        					else {
+        						throw new ValidDate();
+        					}
+        					
+        					break;
+        				case 4:
+        					case 6:
+        						case 9:
+        							case 11:
+        						
+        					if(d>=1 && d<=30)
+        					{
+        						System.out.println("valida date");
+        						ValidateDate s=new ValidateDate(d,m,y);
+        						s.display();
+        					}
+        					else {
+        						throw new ValidDate();
+        					}
+        				break;
+        				
+        				case 2:
+        					if(y%4==0)
+        					{
+        						if(d>=1 && d<=29)
+        						{
+        							System.out.println("valida date");
+        						ValidateDate s=new ValidateDate(d,m,y);
+        						s.display();
+        					    }
+        						else
+        							throw new ValidDate();
+        						
+        							
+        					}
+        					else
+        					{
+        						if(d>=1 && d<=28)
+        					 {
+        						System.out.println("valida date");
+        						ValidateDate s=new ValidateDate(d,m,y);
+        						s.display();
+        							}
+        						else 
+        						{
+        						throw new ValidDate();
+        						}
+        					}
+        					break;
+        				
+        				
+        				}
+        			}
+        			catch(ValidDate e)
+        			{
+        				System.out.println(e);
+        			}
+        		}
+        		else
+        			throw new ValidMonth();
+        		}
+        		catch(ValidMonth e)
+        		{
+        			System.out.println(e);
+        		}
+        	}
+        	else
+        	{
+        		throw new ValidDate();
+        	}
+        }
+        catch(ValidDate e)
+        {
+        	System.out.println(e);
+        	
+        }
+    }
+  }
+  */
+//--------------------------------------------------------------------------------------------------------------------------------
+/*
+9) Define a class patient (patient_name, patient_age, patient_oxy_level,patient_HRCT_report). 
+Create an object of patient. Handle appropriate exception while patient oxygen level less than
+95% and HRCT scan report greater than 10, then throw user defined Exception “Patient is Covid 
+Positive(+) and Need to Hospitalized” otherwise display its information.
+*/
+/*
+class Patient
+{
+	String pname;
+	int page,pol,phr;
+	Patient(String pname,int page,int pol,int phr)
+	{
+		this.pname=pname;
+		this.page=page;
+		this.pol=pol;
+		this.phr=phr;
+	}
+	void display()
+	{
+		System.out.println("patient name:"+pname+"\nage="+page+"\n patient_oxy_level="+pol+"\npatient_HRCT_report="+phr);
+	}
+	
+	
+}
+
+class check extends Exception
+{
+	public String toString()
+	{
+		return  "Patient is Covid  Positive(+) and Need to Hospitalized ";
+	}
+}
+
+public class august5 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("patient_name, patient_age, patient_oxy_level,patient_HRCT_report:");
+        String pname=sc.next();
+        int page=sc.nextInt();
+        int pol=sc.nextInt();
+        int phr=sc.nextInt();
+        
+        try
+        {
+        	if(pol<95 || phr>10)
+        	{
+        		throw new check();
+        	}
+        	else
+        	{
+        		Patient p=new Patient(pname,page,pol,phr);
+        		p.display();
+        	}
+        }
+        catch(check e)
+        {
+        	System.out.println(e);
+        }
+    }
+}
+*/
+//------------------------------------------------------------------------------------------------------------
+/*
+7)Define a class which contains method “DisplayColor” which takes one
+character as argument. Raise an error if the character is not an alphabet
+. If the alphabet is a color of the rainbow, display the color name. If it
+is any other alphabet, report an error. Us
+*/
+/*
+class Rainbow extends Exception
+{
+	public String toString()
+	{
+		return "error";
+	}
+}
+public class august5 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the character:");
+        char ch=sc.next().charAt(0);
+        
+        try
+        {
+        	if((ch>='a' && ch<='z')|| (ch>='A' && ch<='Z'))
+        	{
+        		switch(ch)
+        		{
+        		case 'r':
+        		case 'R':
+        			System.out.println("red");
+        			break;
+        			
+        		case 'o':
+        		case 'O':
+        			System.out.println("Orange");
+        			break;
+        			
+        		case 'y':
+        		case 'Y':
+        			System.out.println("yellow");
+        			break;
+        			
+        		case 'g':
+        		case 'G':
+        			System.out.println("Green");
+        			break;
+        			
+        		case 'b':
+        		case 'B':
+        			System.out.println("blue");
+        			break;
+        			
+        		case 'i':
+        		case 'I':
+        			System.out.println("Indigo");
+        			break;
+        			
+        		case 'v':
+        		case 'V':
+        			System.out.println("violet");
+        			break;
+        			
+        			default:
+        				throw new Rainbow();
+        				
+        		}
+        	}
+        }
+        catch(Rainbow e)
+        {
+        
+        System.out.println(e);	
+       
+        }
+    }
+}
+*/
+//--------------------------------------------------------------------------------------------------------------------
+/*
+
+class InvalidUsernameException extends Exception{
+	public String toString() {
+		return "Invalid Username Exception";
+	}
+}
+
+class InvalidPasswordException extends Exception{
+	public String toString() {
+		return "Invalid Password Exception";
+	}
+}
+
+class Email{
+	String username,password;
+	Email(){
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter username, password");
+		username=sc.next();
+		password=sc.next();
+	}
+	Email(String u,String p){
+		username=u;
+		password=p;
+	}
+	void display() {
+		try {
+		if(!username.equals("admin"))
+			throw new InvalidUsernameException();
+		if(!password.equals("abc@123"))
+			throw new InvalidPasswordException();
+		System.out.println("Logged In Successfully");
+		}
+		catch(InvalidUsernameException e) {
+			System.out.println(e);
+		}
+		catch(InvalidPasswordException e) {
+			System.out.println(e);
+		}
+	}
+}
+
+public class august5 {
+    public static void main(String[] args) {
+
+Email e=new Email();
+e.display();
+}
+}
+*/
+//---------------------------------------------------------------------------------------------------------------------
+ class InvalidOperatorException extends Exception{
+	public String toString() {
+		return "Invalid Operator";
+	}
+}
+
+class NegativeResultException extends Exception{
+	public String toString() {
+		return "Result is Negative";
+	}
+}
+
+class Calculator{
+	double n1,n2;
+	char operator;
+	
+	Calculator(double n1,double n2,char ch){
+		this.n1=n1;
+		this.n2=n2;
+		operator=ch;
+	}
+	
+	void add(){
+		try {
+		if(n1<0 || n2<0)
+			throw new NegativeResultException();
+		else
+		System.out.println("Addition "+(n1+n2));
+		}
+		catch(NegativeResultException e) {
+			System.out.println(e);
+		}
+	}
+	void subtract() {
+		try {
+			double r=n1-n2;
+			if(r<0) 
+				throw new NegativeResultException();
+			else
+			System.out.println("Subtraction "+r);
+		}
+		catch(NegativeResultException e) {
+			System.out.println(e);
+		}
+	}
+	void mul() {
+		try {
+			if((n1<0 && n2>0) || (n1>0 && n2<0))
+				throw new NegativeResultException();
+			else
+				System.out.println("Multiplication "+(n1*n2));
+		}
+		catch(NegativeResultException e) {
+			System.out.println(e);
+		}
+	}
+	void div() {
+		try {
+			if(n1<0 || n2<0)
+				throw new NegativeResultException();
+			else
+				System.out.println("Division "+(n1/n2));
+		}
+		catch(NegativeResultException e) {
+			System.out.println(e);
+		}
+	}
+}
+
+public class august5 {
+    public static void main(String[] args) {
+double n1,n2;
+Scanner sc=new Scanner(System.in);
+char ch;
+try {
+System.out.println("Enter 1st and 2nd number ");
+n1=sc.nextDouble();
+n2=sc.nextDouble();
+System.out.println("Enter operator");
+ch=sc.next().charAt(0);
+if(ch!='+' && ch!='-' && ch!='*' && ch!='/')
+	throw new InvalidOperatorException();
+else {
+	Calculator c=new Calculator(n1,n2,ch);
+	switch(ch) {
+	case '+':
+		c.add();
+		break;
+	case '-':
+		c.subtract();
+		break;
+	case '*':
+		c.mul();
+		break;
+	case '/':
+		c.div();
+		break;
+	default:
+		break;
+	}
+}
+}
+catch(InvalidOperatorException e) {
+	System.out.println(e);
+}
+}
+}
