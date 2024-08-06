@@ -1,0 +1,313 @@
+package Games;
+
+public class indoor {
+	String name,gname;
+	
+	indoor(String name,String gname)
+	{
+		this.name=name;
+		this.gname=gname;
+	}
+	void display()
+	{
+		System.out.println("Name:"+name+"\nGame name:"+gname);
+	}
+
+}
+package Games;
+
+public class outdoor {
+String name,gname;
+	
+	outdoor(String name,String gname)
+	{
+		this.name=name;
+		this.gname=gname;
+	}
+	void display()
+	{
+		System.out.println("Name:"+name+"\nGame name:"+gname);
+	}
+}
+
+package Games;
+import java.util.*;
+import Games.*;
+public class games {
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("1)indoor\n2)outdoor");
+		System.out.println("Enter teh choice");
+		int ch=sc.nextInt();
+		switch(ch)
+		{
+		case 1:
+			System.out.println("Enter the size of array:");
+			int n=sc.nextInt();
+			indoor a[]=new indoor[n];
+			for(int i=0;i<n;i++)
+			{
+				System.out.println("Enter the name and game name:");
+				String name=sc.next();
+				String gname=sc.next();
+				a[i]=new indoor(name,gname);
+				
+			}
+			
+			System.out.println("details:");
+			for(int i=0;i<n;i++)
+			{
+	            a[i].display();
+			}
+			break;
+			
+		case 2:
+			System.out.println("Enter the size of array:");
+			int n1=sc.nextInt();
+			outdoor b[]=new outdoor[n1];
+			for(int i=0;i<n1;i++)
+			{
+				System.out.println("Enter the name and game name:");
+				String name=sc.next();
+				String gname=sc.next();
+				b[i]=new outdoor(name,gname);
+				
+			}
+			
+			System.out.println("details:");
+			for(int i=0;i<n1;i++)
+			{
+	            b[i].display();
+			}
+			break;
+			
+			
+			default:
+				System.out.println("Wrong choice");
+				break;
+			
+		}
+		
+	}
+
+}
+
+//-------------------------------------------------------------------------------------------
+package Math11;
+import java.util.*;
+public class Mathsoperation {
+	int n1,n2,n3;
+	Scanner sc=new Scanner(System.in);
+	public void  accept(){
+		System.out.println("enter the n1,n2,n3:");
+		n1=sc.nextInt();
+		n2=sc.nextInt();
+		n3=sc.nextInt();
+	}
+public void min()
+{
+	  if(n1>n2 && n3>n2)
+      {
+          System.out.println(" n2 is min");
+      }
+      else if (n2>n1 && n3>n1)
+      {
+          System.out.println("n1 is min");
+      }
+      else if (n1>n3 && n2>n3)
+      {
+          System.out.println("n3 is min");
+      }
+      else if (n1==n2 && n1<n3)
+      {
+          System.out.println(" n1 and n2 are equal and minimum than n3");
+      }
+      else if (n1==n3 && n1<n2)
+      {
+          System.out.println("n1 and n3 are equal and minimum than n2");
+      }
+      else if (n2== n3 && n2<n1)
+      {
+          System.out.println("n2 and n3 are equal and minimum than n1");
+      }
+      else
+      {
+          System.out.println("n1 and n2 and n3 are equal");
+      }
+}
+
+public void max()
+{
+	 if(n1>n2 && n1>n3)
+     {
+         System.out.println(" n1 is greater");
+     }
+     else if (n2>n1 && n2>n3)
+     {
+         System.out.println("n2 is greater");
+     }
+     else if (n3>n1 && n3>n2)
+     {
+         System.out.println("m3 is greater");
+     }
+     else if (n1==n2 && n1>n3 && n2>n3)
+     {
+         System.out.println(" n1 and n2 are equal and greater than n3");
+     }
+     else if (n1==n3 && n1>n2 && n3>n2)
+     {
+         System.out.println("n1 and n3 are equal and greatwr than n2");
+     }
+     else if (n2== n3 && n2>n1 && n3>n1)
+     {
+         System.out.println("n2 and n3 are equal and grater than n1");
+     }
+     else
+     {
+         System.out.println("n1 and n2 and n3 are equal");
+     }
+}
+}
+
+package Stats;
+import java.util.*;
+public class StatoOperations {
+int n1,n2,n3;
+Scanner sc=new Scanner(System.in);
+StatoOperations()
+{
+	System.out.println("Enter the n1,n2,n3:");
+	n1=sc.nextInt();
+	n2=sc.nextInt();
+	n3=sc.nextInt();
+}
+
+void avg()
+{
+	System.out.println("Average:"+(n1+n2+n3)/3);
+}
+void median() 
+{
+	System.out.println("Median:"+(n3+1)/2);
+}
+
+}
+
+package Stats;
+import Math11.*;
+import Stats.*;
+
+public class Main {
+	public static void main(String args[])
+	{
+		Mathsoperation m=new Mathsoperation();
+		m.accept();
+		m.max();
+		m.min();
+		
+	StatoOperations s=new 	StatoOperations();
+	s.median();
+	s.avg();
+		
+		
+	}
+
+}
+//-----------------------------------------------------------------------------------------
+package series;
+import java.util.*;
+public class armstrong {
+
+	Scanner sc=new Scanner(System.in);
+		int n;
+		public void arm()
+		{int n1,sum=0;
+			System.out.println("Enter the no:");
+			n=sc.nextInt();
+			int p=n;
+			while(n>0)
+			{
+				n1=n%10;
+				sum=sum+(n1*n1*n1);
+				n=n/10;
+			}
+			if(p==sum)
+				System.out.println("armstrong");
+			else
+				System.out.println("not armstrong");
+
+				
+		}
+
+}
+package series;
+import java.util.*;
+public class fibonaci {
+	Scanner sc=new Scanner(System.in);
+	int n;
+	public void fibonaci()
+	{int n1,sum=0;
+		System.out.println("Enter the no:");
+		n=sc.nextInt();
+		int f0=0;
+		int f1=1,f2;
+		
+		for(int i=0;i<n;i++)
+		{System.out.println(""+f0);
+			f2=f1+f0;
+			f0=f1;
+			f1=f2;
+			
+		}
+}
+}
+package series;
+import java.util.*;
+
+public class prime {
+Scanner sc=new Scanner(System.in);
+	int n;
+	public void prime()
+	{int flag=0;
+		System.out.println("Enter the no:");
+		n=sc.nextInt();
+		for(int i=2;i<n;i++)
+		{
+			if(n%i==0)
+			{
+				flag=1;
+				break;
+			}	
+			else
+				flag=0;
+		}
+		if(flag==0)
+		{
+			System.out.println("prime");
+		}
+		else
+			System.out.println("not prime");
+	}
+
+}
+
+package series;
+import series.*;
+
+public class common {
+
+	public static void main(String[] args) {
+		armstrong a=new armstrong();
+		a.arm();
+		prime p=new prime();
+		p.prime();
+		fibonaci f=new fibonaci();
+		f.fibonaci();
+		
+
+	}
+
+}
+
